@@ -25,20 +25,7 @@
 
         /* RTL support */
         [dir="rtl"] {
-            font-family: 'Tahoma', 'Arial', sans-serif;
-        }
-
-        [dir="rtl"] .navbar {
-            flex-direction: row-reverse;
-        }
-
-        [dir="rtl"] .nav-links {
-            flex-direction: row-reverse;
-        }
-
-        [dir="rtl"] .social-links {
-            margin-right: 2rem;
-            margin-left: 0;
+            font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
         }
 
         [dir="rtl"] .hero {
@@ -103,18 +90,7 @@
             flex-shrink: 0;
         }
 
-        .nav-links {
-            /* Removed - no longer needed */
-        }
-
-        .nav-links a {
-            /* Removed - no longer needed */
-        }
-
-        .nav-links a:hover {
-            /* Removed - no longer needed */
-        }
-
+        /* Language Switcher */
         .language-switcher {
             display: flex;
             gap: 0.5rem;
@@ -144,6 +120,7 @@
             box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
         }
 
+        /* Social links */
         .social-links {
             display: flex;
             gap: 1rem;
@@ -426,21 +403,6 @@
                 margin-right: 0;
             }
         }
-
-        /* Persian font optimization */
-        [dir="rtl"] {
-            font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
-        }
-
-        /* Language transition effects */
-        .fade-transition {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .fade-transition.visible {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
@@ -451,249 +413,15 @@
                 <img src="logo.png" alt="LearnAvecShaki" class="logo-icon">
                 LearnAvecShaki
             </a>
-            
             <div class="nav-right">
-                <!-- Language Switcher -->
                 <div class="language-switcher">
-                    <div class="flag-btn" id="en-flag" onclick="switchLanguage('en')" title="English">
-                        🇬🇧
-                    </div>
-                    <div class="flag-btn" id="fa-flag" onclick="switchLanguage('fa')" title="فارسی">
-                        🇮🇷
-                    </div>
+                    <div class="flag-btn" id="en-flag" onclick="switchLanguage('en')" title="English">🇬🇧</div>
+                    <div class="flag-btn" id="fa-flag" onclick="switchLanguage('fa')" title="فارسی">🇮🇷</div>
                 </div>
-                
                 <div class="social-links">
-                <a href="https://instagram.com/learnavecshaki" target="_blank" title="Instagram">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </a>
-                <a href="mailto:learnavecshaki@gmail.com" title="Email">✉️</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- English Content -->
-    <div class="lang-content" id="content-en">
-        <!-- Main hero section -->
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>Learn English & French Online</h1>
-                <p class="subtitle">Professional language courses designed for your success, taught by certified native speakers.</p>
-                <p class="description">Follow an effective method, wherever you are!</p>
-            </div>
-            
-            <div class="hero-illustration">
-                <div class="illustration-container">
-                    <div class="illustration-content">
-                        <span class="main-icon">🌍</span>
-                        <h3>Global Learning</h3>
-                        <p>Connect with languages worldwide</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features section -->
-        <section class="features" id="courses">
-            <div class="features-container">
-                <h2>Why choose LearnAvecShaki?</h2>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <span class="feature-icon">👨‍🏫</span>
-                        <h3>Expert Native Teachers</h3>
-                        <p>Learn from certified professional teachers who are native speakers of English and French.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">⏰</span>
-                        <h3>Flexible Scheduling</h3>
-                        <p>Personalized schedules that fit your busy lifestyle. Learn at your own pace, anytime.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">🗣️</span>
-                        <h3>Practical Communication</h3>
-                        <p>Focus on real-world communication skills that you can use immediately in your daily life.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact section -->
-        <section class="contact" id="contact">
-            <div class="contact-container">
-                <h2>Start Your Language Journey Today</h2>
-                <p>Ready to improve your English or French? Get in touch and let's begin your learning adventure!</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <span>📧</span>
-                        <span>learnavecshaki@gmail.com</span>
-                    </div>
-                    <div class="contact-method">
+                    <a href="https://instagram.com/learnavecshaki" target="_blank" title="Instagram">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
-                        <span>@learnavecshaki</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Persian Content -->
-    <div class="lang-content hidden" id="content-fa">
-        <!-- Main hero section -->
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>یادگیری آنلاین انگلیسی و فرانسه</h1>
-                <p class="subtitle">دوره‌های زبان حرفه‌ای طراحی شده برای موفقیت شما، تدریس شده توسط مدرسان بومی معتبر.</p>
-                <p class="description">روش مؤثری را دنبال کنید، هر کجا که هستید!</p>
-            </div>
-            
-            <div class="hero-illustration">
-                <div class="illustration-container">
-                    <div class="illustration-content">
-                        <span class="main-icon">🌍</span>
-                        <h3>یادگیری جهانی</h3>
-                        <p>با زبان‌های سراسر دنیا ارتباط برقرار کنید</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features section -->
-        <section class="features" id="courses">
-            <div class="features-container">
-                <h2>چرا LearnAvecShaki را انتخاب کنیم؟</h2>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <span class="feature-icon">👨‍🏫</span>
-                        <h3>مدرسان متخصص بومی</h3>
-                        <p>از مدرسان حرفه‌ای معتبر که زبان مادری انگلیسی و فرانسه دارند یاد بگیرید.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">⏰</span>
-                        <h3>برنامه‌ریزی انعطاف‌پذیر</h3>
-                        <p>برنامه‌های شخصی‌سازی شده که با زندگی پرمشغله شما سازگار است. هر زمان که می‌خواهید یاد بگیرید.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">🗣️</span>
-                        <h3>ارتباط عملی</h3>
-                        <p>تمرکز بر مهارت‌های ارتباطی دنیای واقعی که می‌توانید فوراً در زندگی روزمره استفاده کنید.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact section -->
-        <section class="contact" id="contact">
-            <div class="contact-container">
-                <h2>سفر زبانی خود را امروز شروع کنید</h2>
-                <p>آماده بهبود انگلیسی یا فرانسه خود هستید؟ با ما تماس بگیرید و ماجراجویی یادگیری خود را آغاز کنیم!</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <span>📧</span>
-                        <span>learnavecshaki@gmail.com</span>
-                    </div>
-                    <div class="contact-method">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        <span>@learnavecshaki</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <script>
-        // Language switching functionality
-        let currentLanguage = 'en';
-
-        function switchLanguage(lang) {
-            // Update current language
-            currentLanguage = lang;
-            
-            // Update HTML attributes for RTL support
-            const html = document.documentElement;
-            if (lang === 'fa') {
-                html.setAttribute('lang', 'fa');
-                html.setAttribute('dir', 'rtl');
-                document.title = 'LearnAvecShaki - یادگیری آنلاین انگلیسی و فرانسه';
-            } else {
-                html.setAttribute('lang', 'en');
-                html.setAttribute('dir', 'ltr');
-                document.title = 'LearnAvecShaki - Learn English & French Online';
-            }
-            
-            // Hide all content
-            const allContent = document.querySelectorAll('.lang-content');
-            allContent.forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            // Show selected language content
-            document.getElementById(`content-${lang}`).classList.remove('hidden');
-            
-            // Update flag button states
-            document.querySelectorAll('.flag-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.getElementById(`${lang}-flag`).classList.add('active');
-            
-            // Save language preference
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        // Automatic language detection
-        function detectLanguage() {
-            // Check saved preference first
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang) {
-                return savedLang;
-            }
-            
-            // Check browser language
-            const browserLang = navigator.language || navigator.userLanguage;
-            if (browserLang.startsWith('fa') || browserLang.startsWith('per')) {
-                return 'fa';
-            }
-            
-            // Check for Persian in accepted languages
-            const acceptedLanguages = navigator.languages || [browserLang];
-            for (let lang of acceptedLanguages) {
-                if (lang.startsWith('fa') || lang.startsWith('per')) {
-                    return 'fa';
-                }
-            }
-            
-            // Try to detect Iranian time zone (Iran Standard Time)
-            try {
-                const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                if (timeZone === 'Asia/Tehran') {
-                    return 'fa';
-                }
-            } catch (e) {
-                // Timezone detection failed, continue with default
-            }
-            
-            // Default to English
-            return 'en';
-        }
-
-        // Initialize language on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const detectedLang = detectLanguage();
-            switchLanguage(detectedLang);
-        });
-    </script>
-</body>
-</html>
+                    </a>
+                    <
