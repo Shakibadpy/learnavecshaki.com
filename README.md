@@ -1,1 +1,0 @@
-# learnavecshaki.com
