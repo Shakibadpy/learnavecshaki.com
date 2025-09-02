@@ -1,181 +1,699 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LearnAvecShaki - Learn English & French Online</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="shortcut icon" type="image/png" href="favicon.png">
-  <style>
-    /* Tout ton CSS tel que tu l’as collé, inchangé */
-    /* … je ne le recopie pas ici pour alléger, mais tu le gardes tel quel */
-    .lang-content { display: block; }
-    .lang-content.hidden { display: none; }
-    .flag-btn.active { border-color: #4A90E2; box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnAvecShaki - Learn English & French Online</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ffffff 0%, #f5f8fa 30%, #eef4f8 100%);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        /* RTL support */
+        [dir="rtl"] {
+            font-family: 'Tahoma', 'Arial', sans-serif;
+        }
+
+        [dir="rtl"] .navbar {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .nav-links {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .social-links {
+            margin-right: 2rem;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] .hero {
+            grid-template-columns: 1fr 1fr;
+            direction: rtl;
+        }
+
+        [dir="rtl"] .hero-content {
+            text-align: right;
+        }
+
+        [dir="rtl"] .cta-buttons {
+            justify-content: flex-end;
+        }
+
+        [dir="rtl"] .features-container {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .contact-methods {
+            direction: rtl;
+        }
+
+        /* Header styles */
+        .header {
+            background: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4A90E2;
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            /* Removed - no longer needed */
+        }
+
+        .nav-links a {
+            /* Removed - no longer needed */
+        }
+
+        .nav-links a:hover {
+            /* Removed - no longer needed */
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .flag-btn {
+            width: 32px;
+            height: 24px;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .flag-btn:hover {
+            border-color: #4A90E2;
+            transform: scale(1.1);
+        }
+
+        .flag-btn.active {
+            border-color: #4A90E2;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-left: 2rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #4A90E2;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+            background: #357ABD;
+        }
+
+        /* Hidden content for language switching */
+        .lang-content {
+            display: block;
+        }
+
+        .lang-content.hidden {
+            display: none;
+        }
+
+        /* Main hero section */
+        .hero {
+            padding: 120px 2rem 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .hero-content .description {
+            font-size: 1.1rem;
+            color: #777;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Hero illustration */
+        .hero-illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .illustration-container {
+            width: 100%;
+            max-width: 500px;
+            height: 400px;
+            background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .illustration-container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="%23ffffff" opacity="0.3"/><circle cx="75" cy="25" r="1.5" fill="%23ffffff" opacity="0.4"/><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.5"/><circle cx="25" cy="75" r="1.5" fill="%23ffffff" opacity="0.3"/><circle cx="75" cy="75" r="2" fill="%23ffffff" opacity="0.4"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-20px, -20px) rotate(360deg); }
+        }
+
+        .illustration-content {
+            text-align: center;
+            z-index: 2;
+            color: white;
+        }
+
+        .illustration-content .main-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .illustration-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .illustration-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Features section */
+        .features {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #4A90E2;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Contact section */
+        .contact {
+            padding: 4rem 2rem;
+            background: #4A90E2;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-method:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .contact-method i {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+                padding: 100px 1rem 40px;
+            }
+
+            [dir="rtl"] .hero {
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .social-links {
+                margin-left: 0;
+            }
+
+            [dir="rtl"] .social-links {
+                margin-right: 0;
+                margin-left: 0;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .language-switcher {
+                margin-right: 0;
+            }
+
+            .nav-right {
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            .social-links {
+                margin-left: 0;
+            }
+
+            [dir="rtl"] .social-links {
+                margin-right: 0;
+            }
+        }
+
+        /* Persian font optimization */
+        [dir="rtl"] {
+            font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
+        }
+
+        /* Language transition effects */
+        .fade-transition {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .fade-transition.visible {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <nav class="navbar">
-      <a href="#" class="logo">
-        <img src="logo.png" alt="LearnAvecShaki" class="logo-icon">
-        LearnAvecShaki
-      </a>
+    <!-- Header with navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="LearnAvecShaki" class="logo-icon">
+                LearnAvecShaki
+            </a>
+            
+            <div class="nav-right">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <div class="flag-btn" id="en-flag" onclick="switchLanguage('en')" title="English">
+                        🇬🇧
+                    </div>
+                    <div class="flag-btn" id="fa-flag" onclick="switchLanguage('fa')" title="فارسی">
+                        🇮🇷
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                <a href="https://instagram.com/learnavecshaki" target="_blank" title="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a href="mailto:learnavecshaki@gmail.com" title="Email">✉️</a>
+            </div>
+        </nav>
+    </header>
 
-      <div class="nav-right">
-        <!-- Language Switcher -->
-        <div class="language-switcher">
-          <div class="flag-btn active" id="en-flag" onclick="switchLanguage('en')" title="English">
-            🇬🇧
-          </div>
-          <div class="flag-btn" id="fa-flag" onclick="switchLanguage('fa')" title="فارسی">
-            🇮🇷
-          </div>
-        </div>
+    <!-- English Content -->
+    <div class="lang-content" id="content-en">
+        <!-- Main hero section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Learn English & French Online</h1>
+                <p class="subtitle">Professional language courses designed for your success, taught by certified native speakers.</p>
+                <p class="description">Follow an effective method, wherever you are!</p>
+            </div>
+            
+            <div class="hero-illustration">
+                <div class="illustration-container">
+                    <div class="illustration-content">
+                        <span class="main-icon">🌍</span>
+                        <h3>Global Learning</h3>
+                        <p>Connect with languages worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="social-links">
-          <a href="https://instagram.com/learnavecshaki" target="_blank" title="Instagram">📸</a>
-          <a href="mailto:learnavecshaki@gmail.com" title="Email">✉️</a>
-        </div>
-      </div>
-    </nav>
-  </header>
+        <!-- Features section -->
+        <section class="features" id="courses">
+            <div class="features-container">
+                <h2>Why choose LearnAvecShaki?</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">👨‍🏫</span>
+                        <h3>Expert Native Teachers</h3>
+                        <p>Learn from certified professional teachers who are native speakers of English and French.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">⏰</span>
+                        <h3>Flexible Scheduling</h3>
+                        <p>Personalized schedules that fit your busy lifestyle. Learn at your own pace, anytime.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🗣️</span>
+                        <h3>Practical Communication</h3>
+                        <p>Focus on real-world communication skills that you can use immediately in your daily life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- English Content -->
-  <div class="lang-content" id="content-en">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Learn English & French Online</h1>
-        <p class="subtitle">Professional language courses designed for your success, taught by certified native speakers.</p>
-        <p class="description">Follow an effective method, wherever you are!</p>
-      </div>
-      <div class="hero-illustration">
-        <div class="illustration-container">
-          <div class="illustration-content">
-            <span class="main-icon">🌍</span>
-            <h3>Global Learning</h3>
-            <p>Connect with languages worldwide</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- Contact section -->
+        <section class="contact" id="contact">
+            <div class="contact-container">
+                <h2>Start Your Language Journey Today</h2>
+                <p>Ready to improve your English or French? Get in touch and let's begin your learning adventure!</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <span>📧</span>
+                        <span>learnavecshaki@gmail.com</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>@learnavecshaki</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <!-- Features -->
-    <section class="features">
-      <div class="features-container">
-        <h2>Why choose LearnAvecShaki?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <span class="feature-icon">👨‍🏫</span>
-            <h3>Expert Native Teachers</h3>
-            <p>Learn from certified professional teachers who are native speakers of English and French.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">⏰</span>
-            <h3>Flexible Scheduling</h3>
-            <p>Personalized schedules that fit your busy lifestyle. Learn at your own pace, anytime.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">🗣️</span>
-            <h3>Practical Communication</h3>
-            <p>Focus on real-world communication skills that you can use immediately in your daily life.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Persian Content -->
+    <div class="lang-content hidden" id="content-fa">
+        <!-- Main hero section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>یادگیری آنلاین انگلیسی و فرانسه</h1>
+                <p class="subtitle">دوره‌های زبان حرفه‌ای طراحی شده برای موفقیت شما، تدریس شده توسط مدرسان بومی معتبر.</p>
+                <p class="description">روش مؤثری را دنبال کنید، هر کجا که هستید!</p>
+            </div>
+            
+            <div class="hero-illustration">
+                <div class="illustration-container">
+                    <div class="illustration-content">
+                        <span class="main-icon">🌍</span>
+                        <h3>یادگیری جهانی</h3>
+                        <p>با زبان‌های سراسر دنیا ارتباط برقرار کنید</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Contact -->
-    <section class="contact">
-      <div class="contact-container">
-        <h2>Start Your Language Journey Today</h2>
-        <p>Ready to improve your English or French? Get in touch and let's begin your learning adventure!</p>
-        <div class="contact-methods">
-          <div class="contact-method"><span>📧</span> <span>learnavecshaki@gmail.com</span></div>
-          <div class="contact-method"><span>📸</span> <span>@learnavecshaki</span></div>
-        </div>
-      </div>
-    </section>
-  </div>
+        <!-- Features section -->
+        <section class="features" id="courses">
+            <div class="features-container">
+                <h2>چرا LearnAvecShaki را انتخاب کنیم؟</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">👨‍🏫</span>
+                        <h3>مدرسان متخصص بومی</h3>
+                        <p>از مدرسان حرفه‌ای معتبر که زبان مادری انگلیسی و فرانسه دارند یاد بگیرید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">⏰</span>
+                        <h3>برنامه‌ریزی انعطاف‌پذیر</h3>
+                        <p>برنامه‌های شخصی‌سازی شده که با زندگی پرمشغله شما سازگار است. هر زمان که می‌خواهید یاد بگیرید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🗣️</span>
+                        <h3>ارتباط عملی</h3>
+                        <p>تمرکز بر مهارت‌های ارتباطی دنیای واقعی که می‌توانید فوراً در زندگی روزمره استفاده کنید.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Persian Content -->
-  <div class="lang-content hidden" id="content-fa">
-    <section class="hero">
-      <div class="hero-content">
-        <h1>یادگیری آنلاین انگلیسی و فرانسه</h1>
-        <p class="subtitle">دوره‌های زبان حرفه‌ای طراحی شده برای موفقیت شما، تدریس شده توسط مدرسان بومی معتبر.</p>
-        <p class="description">روش مؤثری را دنبال کنید، هر کجا که هستید!</p>
-      </div>
-      <div class="hero-illustration">
-        <div class="illustration-container">
-          <div class="illustration-content">
-            <span class="main-icon">🌍</span>
-            <h3>یادگیری جهانی</h3>
-            <p>با زبان‌های سراسر دنیا ارتباط برقرار کنید</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <!-- Contact section -->
+        <section class="contact" id="contact">
+            <div class="contact-container">
+                <h2>سفر زبانی خود را امروز شروع کنید</h2>
+                <p>آماده بهبود انگلیسی یا فرانسه خود هستید؟ با ما تماس بگیرید و ماجراجویی یادگیری خود را آغاز کنیم!</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <span>📧</span>
+                        <span>learnavecshaki@gmail.com</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>@learnavecshaki</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-    <section class="features">
-      <div class="features-container">
-        <h2>چرا LearnAvecShaki را انتخاب کنیم؟</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <span class="feature-icon">👨‍🏫</span>
-            <h3>مدرسان متخصص بومی</h3>
-            <p>از مدرسان حرفه‌ای معتبر که زبان مادری انگلیسی و فرانسه دارند یاد بگیرید.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">⏰</span>
-            <h3>برنامه‌ریزی انعطاف‌پذیر</h3>
-            <p>برنامه‌های شخصی‌سازی شده که با زندگی پرمشغله شما سازگار است.</p>
-          </div>
-          <div class="feature-card">
-            <span class="feature-icon">🗣️</span>
-            <h3>ارتباط عملی</h3>
-            <p>تمرکز بر مهارت‌های ارتباطی دنیای واقعی که می‌توانید فوراً استفاده کنید.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <script>
+        // Language switching functionality
+        let currentLanguage = 'en';
 
-    <section class="contact">
-      <div class="contact-container">
-        <h2>سفر زبانی خود را امروز شروع کنید</h2>
-        <p>آماده بهبود انگلیسی یا فرانسه خود هستید؟ با ما تماس بگیرید!</p>
-        <div class="contact-methods">
-          <div class="contact-method"><span>📧</span> <span>learnavecshaki@gmail.com</span></div>
-          <div class="contact-method"><span>📸</span> <span>@learnavecshaki</span></div>
-        </div>
-      </div>
-    </section>
-  </div>
+        function switchLanguage(lang) {
+            // Update current language
+            currentLanguage = lang;
+            
+            // Update HTML attributes for RTL support
+            const html = document.documentElement;
+            if (lang === 'fa') {
+                html.setAttribute('lang', 'fa');
+                html.setAttribute('dir', 'rtl');
+                document.title = 'LearnAvecShaki - یادگیری آنلاین انگلیسی و فرانسه';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                document.title = 'LearnAvecShaki - Learn English & French Online';
+            }
+            
+            // Hide all content
+            const allContent = document.querySelectorAll('.lang-content');
+            allContent.forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show selected language content
+            document.getElementById(`content-${lang}`).classList.remove('hidden');
+            
+            // Update flag button states
+            document.querySelectorAll('.flag-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`${lang}-flag`).classList.add('active');
+            
+            // Save language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
 
-  <script>
-    function switchLanguage(lang) {
-      const enContent = document.getElementById("content-en");
-      const faContent = document.getElementById("content-fa");
-      const enFlag = document.getElementById("en-flag");
-      const faFlag = document.getElementById("fa-flag");
+        // Automatic language detection
+        function detectLanguage() {
+            // Check saved preference first
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                return savedLang;
+            }
+            
+            // Check browser language
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('fa') || browserLang.startsWith('per')) {
+                return 'fa';
+            }
+            
+            // Check for Persian in accepted languages
+            const acceptedLanguages = navigator.languages || [browserLang];
+            for (let lang of acceptedLanguages) {
+                if (lang.startsWith('fa') || lang.startsWith('per')) {
+                    return 'fa';
+                }
+            }
+            
+            // Try to detect Iranian time zone (Iran Standard Time)
+            try {
+                const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                if (timeZone === 'Asia/Tehran') {
+                    return 'fa';
+                }
+            } catch (e) {
+                // Timezone detection failed, continue with default
+            }
+            
+            // Default to English
+            return 'en';
+        }
 
-      if (lang === "fa") {
-        enContent.classList.add("hidden");
-        faContent.classList.remove("hidden");
-        document.documentElement.lang = "fa";
-        document.documentElement.dir = "rtl";
-        enFlag.classList.remove("active");
-        faFlag.classList.add("active");
-      } else {
-        faContent.classList.add("hidden");
-        enContent.classList.remove("hidden");
-        document.documentElement.lang = "en";
-        document.documentElement.dir = "ltr";
-        faFlag.classList.remove("active");
-        enFlag.classList.add("active");
-      }
-    }
-  </script>
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const detectedLang = detectLanguage();
+            switchLanguage(detectedLang);
+        });
+    </script>
 </body>
 </html>
