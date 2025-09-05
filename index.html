@@ -220,13 +220,38 @@
             opacity: 0.9;
         }
 
+        /* Hero right section with image and quote */
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .teacher-photo {
+            width: 100%;
+            max-width: 280px; /* Réduit de 400px à 280px (30% de réduction) */
+            height: 280px; /* Réduit de 400px à 280px */
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border: 5px solid rgba(255,255,255,0.3);
+        }
+
         .teacher-quote {
             background: rgba(255,255,255,0.2);
             padding: 1.5rem;
             border-radius: 10px;
-            margin-top: 2rem;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.3);
+            width: 100%;
+            max-width: 400px;
         }
 
         .teacher-quote p {
@@ -240,23 +265,6 @@
             font-size: 0.9rem;
             opacity: 0.9;
             font-style: normal;
-        }
-
-        /* Hero image */
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .teacher-photo {
-            width: 100%;
-            max-width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            border: 5px solid rgba(255,255,255,0.3);
         }
 
         /* Features section */
@@ -494,8 +502,8 @@
             }
 
             .teacher-photo {
-                max-width: 300px;
-                height: 300px;
+                max-width: 210px; /* Réduit proportionnellement pour mobile */
+                height: 210px;
             }
 
             .header-right {
@@ -582,15 +590,17 @@
                     <h1>A Simple Method to Learn Languages!</h1>
                     <p class="subtitle">Professional language courses designed for your success, taught by certified native speakers.</p>
                     <p class="description">Follow an effective method, wherever you are!</p>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="hero-image">
+                        <img src="shaki.png" alt="Shaki - Language Teacher" class="teacher-photo">
+                    </div>
                     
                     <div class="teacher-quote">
                         <p>"I designed these online language courses to meet the needs of my students. Choose flexible and effective learning to progress quickly in English and French!"</p>
                         <p class="author">— Shaki, Founder of LearnAvecShaki</p>
                     </div>
-                </div>
-                
-                <div class="hero-image">
-                    <img src="shaki.png" alt="Shaki - Language Teacher" class="teacher-photo">
                 </div>
             </div>
         </section>
@@ -639,89 +649,6 @@
             <div class="contact-container">
                 <h2>Start Your Language Journey Today</h2>
                 <p>Ready to improve your English or French? Get in touch and let's begin your learning adventure!</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <span>📧</span>
-                        <span>learnavecshaki@gmail.com</span>
-                    </div>
-                    <div class="contact-method">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                        <span>@learnavecshaki</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Persian Content -->
-    <div class="lang-content hidden" id="content-fa">
-        <!-- Main hero section -->
-        <section class="hero">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1>روشی ساده برای یادگیری زبان!</h1>
-                    <p class="subtitle">کلاس های زبان حرفه ای با اساتید نیتیو و با تجربه که برای موفقیت شما طراحی شده.
-هر کجا که هستید با ما با روشی موثر و ساده زبان یاد بگیرید.</p>
-                    
-                    <div class="teacher-quote">
-                        <p>"من این دوره‌های آنلاین زبان را برای پاسخ به نیازهای دانش‌آموزانم طراحی کرده‌ام. یادگیری انعطاف‌پذیر و موثر را انتخاب کنید تا به سرعت در انگلیسی و فرانسه پیشرفت کنید!"</p>
-                        <p class="author">— شکی، بنیانگذار LearnAvecShaki</p>
-                    </div>
-                </div>
-                
-                <div class="hero-image">
-                    <img src="shaki.png" alt="Shaki - مدرس زبان" class="teacher-photo">
-                </div>
-            </div>
-        </section>
-
-        <!-- Features section -->
-        <section class="features">
-            <div class="features-container">
-                <h2>چرا LearnAvecShaki را انتخاب کنیم؟</h2>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <span class="feature-icon">👨‍🏫</span>
-                        <h3>اساتید حرفه ای و نیتیو</h3>
-                        <p>از مدرسان حرفه‌ای معتبر که زبان مادری انگلیسی و فرانسه دارند یاد بگیرید.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">⏰</span>
-                        <h3>برنامه‌ریزی انعطاف‌پذیر</h3>
-                        <p>ما بر اساس نیاز و اهداف آموزشی شما دوره های مناسب شما را طراحی می‌کنیم. هر زمان که می‌خواهید به راحتی با بهترین روش مناسب خودتان زبان را یاد بگیرید.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <span class="feature-icon">🗣️</span>
-                        <h3>متود آموزشی</h3>
-                        <p>تمرکز ما بر روی مهارت های ارتباطی دنیای واقعی و زندگی روزمره است. با این روش آسان و روان به زبانی که دوست دارید صحبت کنید.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partners/Universities section -->
-        <section class="partners">
-            <div class="partners-container">
-                <h2>مدرسان ما گواهی‌های زبان یا تدریس خود را از این دانشگاه‌ها دریافت کرده‌اند</h2>
-                
-                <div class="partners-grid">
-                    <img src="logo-cambridge.png" alt="University of Cambridge" class="partner-logo">
-                    <img src="logo-ict.png" alt="Institut Catholique de Toulouse" class="partner-logo">
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact section -->
-        <section class="contact">
-            <div class="contact-container">
-                <h2>همین حالا آموزش زبان خود را آغاز کنید</h2>
-                <p>آماده اید که به زبان زیبای فرانسه و انگلیسی صحبت کنید؟ با ما تماس بگیرید و مسیر شیرین آموزش خود را آغاز کنید !</p>
                 
                 <div class="contact-methods">
                     <div class="contact-method">
@@ -829,4 +756,89 @@
         });
     </script>
 </body>
-</html>
+</html>="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>@learnavecshaki</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Persian Content -->
+    <div class="lang-content hidden" id="content-fa">
+        <!-- Main hero section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>روشی ساده برای یادگیری زبان!</h1>
+                    <p class="subtitle">کلاس های زبان حرفه ای با اساتید نیتیو و با تجربه که برای موفقیت شما طراحی شده.
+هر کجا که هستید با ما با روشی موثر و ساده زبان یاد بگیرید.</p>
+                </div>
+                
+                <div class="hero-right">
+                    <div class="hero-image">
+                        <img src="shaki.png" alt="Shaki - مدرس زبان" class="teacher-photo">
+                    </div>
+                    
+                    <div class="teacher-quote">
+                        <p>"من این دوره‌های آنلاین زبان را برای پاسخ به نیازهای دانش‌آموزانم طراحی کرده‌ام. یادگیری انعطاف‌پذیر و موثر را انتخاب کنید تا به سرعت در انگلیسی و فرانسه پیشرفت کنید!"</p>
+                        <p class="author">— شکی، بنیانگذار LearnAvecShaki</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features section -->
+        <section class="features">
+            <div class="features-container">
+                <h2>چرا LearnAvecShaki را انتخاب کنیم؟</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">👨‍🏫</span>
+                        <h3>اساتید حرفه ای و نیتیو</h3>
+                        <p>از مدرسان حرفه‌ای معتبر که زبان مادری انگلیسی و فرانسه دارند یاد بگیرید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">⏰</span>
+                        <h3>برنامه‌ریزی انعطاف‌پذیر</h3>
+                        <p>ما بر اساس نیاز و اهداف آموزشی شما دوره های مناسب شما را طراحی می‌کنیم. هر زمان که می‌خواهید به راحتی با بهترین روش مناسب خودتان زبان را یاد بگیرید.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <span class="feature-icon">🗣️</span>
+                        <h3>متود آموزشی</h3>
+                        <p>تمرکز ما بر روی مهارت های ارتباطی دنیای واقعی و زندگی روزمره است. با این روش آسان و روان به زبانی که دوست دارید صحبت کنید.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners/Universities section -->
+        <section class="partners">
+            <div class="partners-container">
+                <h2>مدرسان ما گواهی‌های زبان یا تدریس خود را از این دانشگاه‌ها دریافت کرده‌اند</h2>
+                
+                <div class="partners-grid">
+                    <img src="logo-cambridge.png" alt="University of Cambridge" class="partner-logo">
+                    <img src="logo-ict.png" alt="Institut Catholique de Toulouse" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section class="contact">
+            <div class="contact-container">
+                <h2>همین حالا آموزش زبان خود را آغاز کنید</h2>
+                <p>آماده اید که به زبان زیبای فرانسه و انگلیسی صحبت کنید؟ با ما تماس بگیرید و مسیر شیرین آموزش خود را آغاز کنید !</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <span>📧</span>
+                        <span>learnavecshaki@gmail.com</span>
+                    </div>
+                    <div class="contact-method">
+                        <svg width="20" height="20" viewBox
