@@ -176,16 +176,21 @@
             display: none;
         }
 
-        /* Main hero section */
+        /* Main hero section - CHANGÉ POUR METTRE LE RECTANGLE EN DESSOUS */
         .hero {
             padding: 120px 2rem 60px;
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
             align-items: center;
             min-height: 80vh;
+        }
+
+        .hero-content {
+            width: 100%;
+            text-align: center;
         }
 
         .hero-content h1 {
@@ -216,12 +221,13 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            width: 100%;
         }
 
         .illustration-container {
             width: 100%;
-            max-width: 500px;
-            height: 400px;
+            max-width: 450px;
+            height: 350px;
             background: linear-gradient(135deg, #4A90E2 0%, #87CEEB 100%);
             border-radius: 20px;
             display: flex;
@@ -319,6 +325,62 @@
             font-size: 1.3rem;
         }
 
+        /* Partners/Universities section - NOUVELLE SECTION */
+        .partners {
+            padding: 3rem 2rem 4rem;
+            background: white;
+            text-align: center;
+        }
+
+        .partners-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partners h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 2.5rem;
+            line-height: 1.4;
+            font-weight: normal;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            height: 70px;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        html[dir="rtl"] .partners-container {
+            direction: rtl;
+        }
+
+        html[dir="rtl"] .partners h2 {
+            font-size: 1.7rem;
+        }
+
+        html[dir="rtl"] .partners-grid {
+            direction: ltr; /* Keep logos in same order */
+        }
+
         /* Contact section */
         .contact {
             padding: 4rem 2rem;
@@ -363,16 +425,57 @@
             font-size: 1.5rem;
         }
 
+        /* Persian font optimization - Même taille que l'anglais */
+        html[dir="rtl"] body {
+            font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
+            font-size: 16px; /* Force même taille de base */
+        }
+        
+        /* Ajustement des tailles pour le contenu persan */
+        html[dir="rtl"] .hero-content h1 {
+            font-size: 3.2rem; /* Légèrement réduit pour compenser */
+            text-align: right;
+        }
+        
+        html[dir="rtl"] .hero-content .subtitle {
+            font-size: 1.2rem; /* Légèrement réduit */
+        }
+        
+        html[dir="rtl"] .hero-content .description {
+            font-size: 1rem; /* Légèrement réduit */
+        }
+        
+        html[dir="rtl"] .features h2 {
+            font-size: 2.3rem; /* Légèrement réduit */
+        }
+        
+        html[dir="rtl"] .feature-card h3 {
+            font-size: 1.2rem; /* Légèrement réduit */
+        }
+        
+        html[dir="rtl"] .feature-card p {
+            font-size: 0.95rem; /* Légèrement réduit */
+        }
+        
+        html[dir="rtl"] .contact h2 {
+            font-size: 2.3rem; /* Légèrement réduit */
+        }
+        
+        html[dir="rtl"] .contact p {
+            font-size: 1rem; /* Même taille */
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
                 padding: 100px 1rem 40px;
             }
 
-            html[dir="rtl"] .hero {
+            .hero-content {
+                text-align: center;
+            }
+
+            html[dir="rtl"] .hero-content {
                 text-align: center;
             }
 
@@ -392,6 +495,23 @@
             .features-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .partners h2 {
+                font-size: 1.4rem;
+            }
+            
+            .partner-logo {
+                height: 55px;
+            }
+            
+            .partners-grid {
+                gap: 2rem;
+            }
+            
+            .illustration-container {
+                height: 280px;
+                max-width: 350px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -403,11 +523,6 @@
             .hero {
                 padding-top: 140px;
             }
-        }
-
-        /* Persian font optimization */
-        html[dir="rtl"] body {
-            font-family: 'Tahoma', 'Arial Unicode MS', sans-serif;
         }
     </style>
 </head>
@@ -491,6 +606,18 @@
             </div>
         </section>
 
+        <!-- Partners/Universities section -->
+        <section class="partners">
+            <div class="partners-container">
+                <h2>Our teachers have obtained language or teaching certifications from these universities</h2>
+                
+                <div class="partners-grid">
+                    <img src="logo-cambridge.png" alt="University of Cambridge" class="partner-logo">
+                    <img src="logo-ict.png" alt="Institut Catholique de Toulouse" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
         <!-- Contact section -->
         <section class="contact">
             <div class="contact-container">
@@ -521,6 +648,7 @@
                 <h1>مدرسه آنلاین زبان انگلیسی و فرانسه</h1>
                 <p class="subtitle">کلاس های زبان حرفه ای با اساتید نیتیو و با تجربه که برای موفقیت شما طراحی شده.
 هر کجا که هستید با ما با روشی موثر و ساده زبان یاد بگیرید.</p>
+            </div>
             
             <div class="hero-illustration">
                 <div class="illustration-container">
@@ -560,6 +688,18 @@
             </div>
         </section>
 
+        <!-- Partners/Universities section -->
+        <section class="partners">
+            <div class="partners-container">
+                <h2>مدرسان ما گواهی‌های زبان یا تدریس خود را از این دانشگاه‌ها دریافت کرده‌اند</h2>
+                
+                <div class="partners-grid">
+                    <img src="logo-cambridge.png" alt="University of Cambridge" class="partner-logo">
+                    <img src="logo-ict.png" alt="Institut Catholique de Toulouse" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
         <!-- Contact section -->
         <section class="contact">
             <div class="contact-container">
@@ -595,7 +735,7 @@
             if (lang === 'fa') {
                 html.setAttribute('lang', 'fa');
                 html.setAttribute('dir', 'rtl');
-                document.title = 'LearnAvecShaki - یادگیری آنلاین انگلیسی و فرانسه';
+                document.title = 'LearnAvecShaki - مدرسه آنلاین زبان انگلیسی و فرانسه';
             } else {
                 html.setAttribute('lang', 'en');
                 html.setAttribute('dir', 'ltr');
